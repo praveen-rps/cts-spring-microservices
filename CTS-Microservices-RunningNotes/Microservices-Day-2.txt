@@ -1,0 +1,133 @@
+driver=type4
+database=oracle
+user=scott
+password=tiger
+
+
+Java Application<---------JDBC------------->Database
+
+1. DriverManager
+2. Connection
+3. ResultSet
+4. Statement
+
+Steps in jdbc connection
+-------------------------
+1. load the driver class
+   
+	Class.forName("drivername");
+
+2. Establish the connection between java and database
+	Connection con = DriverManager.getConnection(url,uname,pwd);
+
+3. Create the statemet object
+    Statement st = con.createStatement();
+ 3.1 create the prepared statement
+	String sql = "insert into notes values (?,?,?,?)";
+	PreparedStatement pst = con.prepareStatement(sql);
+	read the values for placeholders from keyboard into v1, v2, v3, v4
+	pst.setInt(1,v1);
+	pst.setString(2,v2);
+	pst.setString(3,v3);
+	pst.setString(4,v4);
+
+	int k = pst.executeUpdate();
+
+
+4. write the query and execute
+	String sql = "select * from notes";
+	
+
+5. store the values in result set object
+	ResultSet rs = st.executeQuery(sql);// select commands
+			executeUpdate(sql);// it will be used for DML commands
+	rs.next();---> move the pointer the next row
+	rs.getInt(1)---> will reutnr the value in first column
+	rs.getStrin(2)---> return the value in second column
+	rs.getString(3)-->return the value in third column
+
+
+6. process the data
+   
+
+7. close the objects
+	rs.close();
+	st.close();
+	con.close();
+
+
+public int fact(int x){
+
+	return value;
+}
+
+
+int f = fact(4);
+
+
+Transaction Management
+-----------------------
+A ----> Atomicity  ---->Most Imp
+All or None
+
+Transfer funds from one account to another account
+
+1. read the sender accountnumner
+2. check the balance of sender
+3. debit the requried amount from the sender
+
+4. read the recipient account number
+5. check the account
+6. credit the amount to the recipient
+
+
+
+
+
+
+
+
+C-----> Consistency
+I-----> Isolation
+D-----> Duarablity
+
+
+
+
+
+
+Inheritance
+
+class A{
+
+
+}
+
+class B extends A{
+
+
+}
+B b = new B();-----> clear
+
+B b = new A();----> Invalid
+A a = new B();----> valid---> Dynamic Dispatch
+Exception(parent)
+	IOException
+		FileNotFoundException
+	InstantionException
+	InterruptedException
+	InitializationException
+	RunTimeException
+		ArthimeticException
+		IndexOutOfBoundsException
+			ArrayIndexOutOfBoundsException	
+			StringIndexOutOfBoundsException
+
+
+
+
+
+
+
+
+

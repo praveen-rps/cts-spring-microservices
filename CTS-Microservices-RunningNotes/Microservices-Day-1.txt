@@ -1,0 +1,199 @@
+Spring - It is a framework for developing the enterprise level applications
+
+1. Dependency Injection (DI) - The process of injecting the dependent objects is called
+DI
+
+2. Inverion of Control (Ioc) -- The DI in spring is called IoC
+(inverse of process of the manual process of injecting)
+
+
+controller ------------->service------------>dao
+
+class Address{
+
+	int dno;
+	String street;
+	String city;
+	// constructors
+	// getter and setter methods
+
+}
+
+class Person{
+	int id;
+	String name;
+	Address address;
+	Person(){
+		
+	}
+
+	//constructors
+	//getter and setter methods;
+
+}
+
+class Employee{ ---> java object (dont' call it as bean)
+
+
+}
+
+Person p = new Person();
+sop(p.address); // nulL values for all dno, street, city
+
+
+The object which is created by spring container is called Bean
+java object--->>
+
+All beans are java objects but not all java objects are beans
+
+Framework ---> java -->API
+
+
+Jar files ----> work with spring
+
+
+Connection
+DriverManager
+Statement
+ResultSet
+
+Abstract methods ---> methods without any definition
+
+
+Class.forName("driver")
+DriverManager.getConnection(url,uid,pwd);====>connect to database?
+
+con.createStatement();
+st.executeQuery(query)
+
+will nt  connect to database unless you add one jar 
+ojdbc14.jar --->oracle
+mysql-connector.jar---->mysql--->classes and its implementation methods
+
+
+spring-core
+spring-context
+
+
+Maven ---> Build Tool ---> mvnrepository
+Dependency of jar files
+
+
+You can create projects
+and build the jar files
+
+
+bank application(source code + 100  jar files )------> jar (executable jar) --->
+
+java -jar <jarname>;
+java -jar bank.jar
+
+
+Bank project---->
+
+Dev1 Dev2 Dev3---> Savings Module
+
+
+Dev1-->1
+Dev2-->2,3
+Dev3-->4,5
+
+dev1+ dev2+ dev3 --->
+
+
+Configuration can be provided in 3 ways
+
+1. xml format (xml file) ---> validated -->DTD (Document Type Definition) -->validation of tags
+spring developers 
+2. Java Class
+3. Java Annotations
+
+Address adr = new Address();
+
+Interface--> BeanFactory(Parallel Processing) ----> ApplictionContext(Container)---> Interface
+
+
+1. ClassPathXmlApplicationContext --> When config is in xml and it is in project class path
+2. FileSystemXmlApplicationContext  --> when config is in xml and it is in any file system
+c driver or d-drive 
+
+3. WebXmlApplicationContext--> when config is in xml and file is in external web applications
+
+4. AnnotationConfigApplicationContext --> when config is in java or java annotations
+
+
+
+
+Autowiring --> 
+1. By default autowire is none
+2. byType
+3. byName
+4. ref
+
+class Area{
+
+	public void area(){
+		sop("area is calculated");
+	}
+}
+
+
+class Square extends Area{
+
+	@Override
+	public void ara(){ // error
+		sop("area of square is calculated");
+	}
+}
+
+
+Square sq = new Square();
+sq.area();  /// area of square is calculated
+
+
+
+Scope of the Bean
+-----------------
+How many instances of the bean object is created ---> Scope
+
+Methods in Object classs
+
+public void hashCode()--> id of the object
+public boolean equals()
+public String toString()
+public void wait()
+public void notify()
+public void notifiyAll()
+
+
+Bean Scopes
+------------
+
+1. singleton----> All the ref will get only one bean instance (Default)
+
+2. prototype -- It will give diff instances for every reference
+
+3. session---> it will give a new instance for every session
+
+4. request---> it will give a new instance for every request
+
+5. application---> for entire application a new instance
+
+
+Annotation Based Config file
+-----------------------------
+
+Springboot ---> No XML
+
+
+@Component------> It is eligible to create as a bean
+
+
+
+
+
+
+
+
+
+
