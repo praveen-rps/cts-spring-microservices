@@ -52,11 +52,30 @@ public class One2onedemoApplication implements CommandLineRunner {
 		
 		// below code will implement one to one unidirectional
 		
-		TUserProfile tprofile = new TUserProfile(100001L,"user1@gmail.com");
-		Tuser tuser = new Tuser(100001L,"user1",tprofile);
+		TUserProfile tprofile1 = new TUserProfile(900001L,"user1@gmail.com");
+		Tuser tuser1 = new Tuser(100001L,"user1",tprofile1);
 		
-		userDao.save(tuser);
+		TUserProfile tprofile2 = new TUserProfile(900002L,"user2@gmail.com");
+		Tuser tuser2 = new Tuser(100002L,"user2",tprofile2);
+		
+		userDao.save(tuser1);
+		userDao.save(tuser2);
 		System.out.println("one2one mapping done..");
+		
+		Iterable<Tuser> users = userDao.findAll();
+        users.forEach(System.out::println);
+        
+        // Update a UserD
+        Tuser existingUser = userDao.findById(2L).orElse(null);
+        if (existingUser != null) {
+            existingUser.setName("Jane Doe");
+            userDao.save(existingUser);
+        }
+
+        //Delete a User
+        userDao.deleteById(1L);
+
+
 	
 	}
 
