@@ -1,0 +1,42 @@
+1. create a springboot application called leavemanagentapplication
+   by adding below dependencies:
+	a. Spring Web 
+	b. Spring Dev Tools
+	c. Spring Data Jpa
+	d. H2 Driver
+	e. Thymeleaf
+
+2. create the package structure like below:
+    com.project.lms 
+    com.project.lms.model
+    com.project.lms.service
+    com.project.lms.controller
+    com.project.lms.dao
+
+
+2. create an Entity class called LeaveTransaction with the following fields
+	1. transactionId (Primary key)
+	2. employeeId (int)
+	3. fromDate (Date )
+	4. toDate (Date)
+	5. days(int)
+	6. leaveType(String)
+	6. reason (String)
+	7. managerId(int)
+	8. comments(String)
+	9. status (String)
+
+3. Write the functionality to implement the login feature, if login is success
+   redirect to a menu page else redirect to login page again
+
+
+4. If login success, in the menu page, display the page with below functionalities
+
+	a. Apply for Leave
+	b. View Previous Leave Requests
+	c. Delete a Leave Request
+	d. Search Leave Requests based on status
+
+
+
+
